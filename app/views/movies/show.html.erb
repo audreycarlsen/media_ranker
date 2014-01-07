@@ -1,10 +1,12 @@
-<h1>movies#show</h1>
-
-<p><%= @movie.title %></p>
-<p><%= @movie.director %></p>
-<p><%= @movie.rank %></p>
+<h1><%= @movie.title %></h1>
+<p>Directed by: <%= @movie.director %></p>
+<p>Ranked: <%= @movie.rank %></p>
 <p><%= @movie.synopsis %></p>
 
-<p><%= link_to "Edit #{@movie.title}", edit_movie_path %></p>
+<p><%= button_to "Upvote", upvote_movie_path(@movie.id), method: :patch %></p>
 
-Delete
+<p><%= button_to "Edit #{@movie.title}", edit_movie_path(@movie.id), method: :get %></p>
+
+<p><%= button_to "Delete", delete_movie_path(@movie.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+<p><%= button_to "View All Movies", movies_path, method: :get %></p>
