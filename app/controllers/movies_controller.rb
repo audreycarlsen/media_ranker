@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to movie_path(@movie)
+      redirect_to movie_path(@movie.id)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
 
   def update
     if @movie.update(movie_params)
-      redirect_to movie_path(@movie)
+      redirect_to movie_path(@movie.id)
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class MoviesController < ApplicationController
   def upvote
     @movie.rank += 1
     @movie.save
-    redirect_to movie_path(@movie)
+    redirect_to movie_path(@movie.id)
   end
 
   private
