@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140106231125) do
+ActiveRecord::Schema.define(version: 20140106233658) do
 
   create_table "movies", force: true do |t|
     t.string   "title"
     t.string   "director"
     t.string   "synopsis"
-    t.integer  "rank",       default: 0
+    t.integer  "rank",       default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
