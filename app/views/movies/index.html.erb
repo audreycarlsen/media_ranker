@@ -8,9 +8,9 @@
   <% @movies.each do |movie| %>
     <tr>
       <td><%= movie.rank %></td>
-      <td><%= link_to "#{movie.title}", movie %></td>
+      <td><%= link_to "#{movie.title}", movie_path(movie.id) %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= button_to 'Add a Movie', movies_new_path, method: :get %></p>
+<p><%= link_to 'Add a Movie', movies_new_path %></p>
