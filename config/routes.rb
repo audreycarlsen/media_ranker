@@ -1,5 +1,6 @@
 MediaRanker::Application.routes.draw do
 
+  root   'welcome#index'
   get    '/movies'            => 'movies#index',   as: 'movies'
   get    '/movies/new'        => 'movies#new',     as: 'new_movie'
   post   '/movies'            => 'movies#create'
