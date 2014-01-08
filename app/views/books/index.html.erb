@@ -1,4 +1,4 @@
-<h1>books#index</h1>
+<h1>All Books</h1>
 
 <table>
   <tr>
@@ -6,7 +6,7 @@
     <th>Title</th>
     <th>Upvote</th>
   </tr>
-  <% @books.each do |book| %>
+  <% @books.order(:rank).reverse.each do |book| %>
     <tr>
       <td><%= book.rank %></td>
       <td><%= link_to "#{book.title}", book_path(book.id) %></td>

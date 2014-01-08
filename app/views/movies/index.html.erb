@@ -1,4 +1,4 @@
-<h1>movies#index</h1>
+<h1>All Movies</h1>
 
 <table>
   <tr>
@@ -6,7 +6,7 @@
     <th>Title</th>
     <th>Upvote</th>
   </tr>
-  <% @movies.each do |movie| %>
+  <% @movies.order(:rank).reverse.each do |movie| %>
     <tr>
       <td><%= movie.rank %></td>
       <td><%= link_to "#{movie.title}", movie_path(movie.id) %></td>
