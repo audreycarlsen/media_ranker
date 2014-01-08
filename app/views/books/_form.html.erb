@@ -1,13 +1,14 @@
 <%= form_for(@book) do |f| %>
 
-  <p><%= label_tag :title %><br />
+  <p><%= label_tag :title %><br>
      <%= f.text_field :title %></p>
 
-  <p><%= label_tag :author %><br />
+  <p><%= label_tag :author %><br>
      <%= f.text_field :author %></p>
 
-  <p><%= label_tag :description %><br />
+  <p><%= label_tag :description %><br>
      <%= f.text_area :description %></p>
 
   <p><%= f.submit%></p>
+  
 <% end %>

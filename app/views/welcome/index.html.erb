@@ -10,4 +10,16 @@
 
       <%= link_to "View More Movies", movies_path %>
     </td>
+
+    <td>
+      <h1>Top Books</h1>
+
+      <% @top_five_books.each do |book| %>
+        <p><%= link_to "#{book.title}", book_path(book.id) %><br>
+        Ranked: <%= book.rank %></p>
+      <% end %>
+
+      <%= link_to "View More Books", books_path %>
+    </td>
+  </tr>
 </table>

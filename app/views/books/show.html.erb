@@ -1,0 +1,8 @@
+<h1><%= @book.title %></h1>
+<p>Written by: <%= @book.author %></p>
+<p>Ranked: <%= @book.rank %></p>
+<p><%= @book.description %></p>
+
+<p><%= button_to "View All Books", books_path, method: :get %></p>
+
+<p><%= button_to "View All Media", root_path, method: :get %></p>
