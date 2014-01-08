@@ -1,6 +1,6 @@
 <h1>All Albums</h1>
 
-<table>
+<table class='table'>
   <tr>
     <th>Rank</th>
     <th>Title</th>
@@ -10,11 +10,11 @@
     <tr>
       <td><%= album.rank %></td>
       <td><%= link_to "#{album.title}", album_path(album.id) %></td>
-      <td><%= button_to "Upvote", upvote_album_path(album.id), method: :patch %>
+      <td><%= button_to "UPVOTE", upvote_album_path(album.id), method: :patch, class: 'btn btn-success btn-sm' %>
     </tr>
   <% end %>
 </table>
 
-<p><%= button_to 'Add an Album', new_album_path, method: :get %></p>
+<p><%= link_to 'Add an Album', new_album_path, class: 'btn btn-default' %>
 
-<p><%= button_to 'View All Media', root_path, method: :get %></p>
+  <%= link_to 'View All Media', root_path, class: 'btn btn-default' %></p>

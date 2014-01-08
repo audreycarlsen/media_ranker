@@ -1,6 +1,6 @@
 <h1>All Movies</h1>
 
-<table>
+<table class='table'>
   <tr>
     <th>Rank</th>
     <th>Title</th>
@@ -10,11 +10,11 @@
     <tr>
       <td><%= movie.rank %></td>
       <td><%= link_to "#{movie.title}", movie_path(movie.id) %></td>
-      <td><%= button_to "Upvote", upvote_movie_path(movie.id), method: :patch %>
+      <td><%= button_to "UPVOTE", upvote_movie_path(movie.id), method: :patch, class: 'btn btn-success btn-sm' %>
     </tr>
   <% end %>
 </table>
 
-<p><%= button_to 'Add a Movie', new_movie_path, method: :get %></p>
+<p><%= link_to 'Add a Movie', new_movie_path, class: 'btn btn-default btn-sm' %>
 
-<p><%= button_to 'View All Media', root_path, method: :get %></p>
+  <%= link_to 'View All Media', root_path, class: 'btn btn-default btn-sm' %></p>

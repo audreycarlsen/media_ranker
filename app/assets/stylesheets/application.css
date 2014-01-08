@@ -1,4 +1,14 @@
 /*
  *= require_self
  *= require_tree .
- */
+*/
+
+body {
+  padding-left: 25px;
+}
+
+.audreys_table td {
+  width: 20%;
+  padding-right: 25px;
+  vertical-align: top;
+}

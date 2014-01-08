@@ -1,14 +1,16 @@
 <h1><%= @book.title %></h1>
-<p>Written by: <%= @book.author %></p>
-<p>Ranked: <%= @book.rank %></p>
+<p class="lead text-muted">Written by: <%= @book.author %><br>
+  Ranked: <%= @book.rank %></p>
 <p><%= @book.description %></p>
 
-<p><%= button_to "Upvote", upvote_book_path(@book.id), method: :patch %></p>
+<br>
 
-<p><%= button_to "Edit #{@book.title}", edit_book_path(@book.id), method: :get %></p>
+<p><%= link_to "UPVOTE", upvote_book_path(@book.id), method: :patch, class: 'btn btn-success btn-sm' %>
 
-<p><%= button_to "Delete", delete_book_path(@book.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<%= link_to "EDIT", edit_book_path(@book.id), class: 'btn btn-info btn-sm' %>
 
-<p><%= button_to "View All Books", books_path, method: :get %></p>
+<%= link_to "DELETE", delete_book_path(@book.id), method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger btn-sm' %></p>
 
-<p><%= button_to "View All Media", root_path, method: :get %></p>
+<p><%= link_to "View All Books", books_path, class: 'btn btn-default btn-sm' %>
+
+  <%= link_to "View All Media", root_path, class: 'btn btn-default btn-sm' %></p>
