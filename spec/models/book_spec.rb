@@ -17,12 +17,12 @@ describe Book do
     end
   end
 
-  describe "#upvote" do
+  describe "#upvote!" do
     it 'increments the rank field by 1' do
       count = book.rank
-      book.upvote
+      book.upvote!
       expect(book.rank).to eq count + 1
-      
+
       # expect { book.upvote }.to change(book, :rank).by(1)
     end
   end
