@@ -26,7 +26,11 @@ class AlbumsController < ApplicationController
 
   def update
     if @album.update(album_params)
-      redirect_to album_path(@album.id)
+      if params[:album][:upvote]
+        redirect_to :back
+      else
+        redirect_to album_path(@album.id)
+      end
     else
       render :edit
     end
@@ -37,16 +41,10 @@ class AlbumsController < ApplicationController
     redirect_to albums_path
   end
 
-  def upvote
-    @album.rank += 1
-    @album.save
-    redirect_to album_path(@album.id)
-  end
-
   private
 
   def album_params
-    params.require(:album).permit(:title, :artist, :description, :rank)
+    params.require(:album).permit(:title, :artist, :description, :upvote)
   end
 
   def set_album

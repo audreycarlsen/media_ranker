@@ -5,7 +5,12 @@
 
 <br>
 
-<p><%= link_to "UPVOTE", upvote_album_path(@album.id), method: :patch, class: 'btn btn-success btn-sm' %>
+<p>
+<%= form_for @album do |f| %>
+  <%= f.hidden_field :upvote %>
+  <%= f.submit "UPVOTE", class: 'btn btn-success btn-sm' %>
+<% end %>
+</p>
 
   <%= link_to "EDIT", edit_album_path(@album.id), class: 'btn btn-info btn-sm' %>
 

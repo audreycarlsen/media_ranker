@@ -10,7 +10,12 @@
     <tr>
       <td><%= album.rank %></td>
       <td><%= link_to "#{album.title}", album_path(album.id) %></td>
-      <td><%= button_to "UPVOTE", upvote_album_path(album.id), method: :patch, class: 'btn btn-success btn-sm' %>
+      <td>
+        <%= form_for album do |f| %>
+          <%= f.hidden_field :upvote %>
+          <%= f.submit "UPVOTE", class: 'btn btn-success btn-sm' %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

@@ -10,7 +10,12 @@
     <tr>
       <td><%= movie.rank %></td>
       <td><%= link_to "#{movie.title}", movie_path(movie.id) %></td>
-      <td><%= button_to "UPVOTE", upvote_movie_path(movie.id), method: :patch, class: 'btn btn-success btn-sm' %>
+      <td>
+        <%= form_for movie do |f| %>
+          <%= f.hidden_field :upvote %>
+          <%= f.submit "UPVOTE", class: 'btn btn-success btn-sm' %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

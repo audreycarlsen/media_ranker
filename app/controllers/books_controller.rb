@@ -26,7 +26,11 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to book_path(@book.id)
+      if params[:book][:upvote]
+        redirect_to :back
+      else
+        redirect_to book_path(@book.id)
+      end
     else
       render :edit
     end
@@ -37,16 +41,10 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  def upvote
-    @book.rank += 1
-    @book.save
-    redirect_to book_path(@book.id)
-  end
-
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :description, :rank)
+    params.require(:book).permit(:title, :author, :description, :upvote)
   end
 
   def set_book
