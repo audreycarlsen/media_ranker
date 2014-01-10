@@ -1,11 +1,11 @@
 require "spec_helper"
 
 describe Book do
-  let!(:book) { Book.create(title: 'Eat, Prey, Love') }
+  let!(:book) { create(:book) }
 
   describe 'validations' do
     it 'has a title' do
-      book = Book.create
+      book = create(:book, title: nil)
       expect(book.errors[:title]).to include "can't be blank"
     end
 
@@ -27,7 +27,6 @@ describe Book do
     end
 
     it 'is valid' do
-      book = Book.create(title: 'Eat, Prey, Love', author: 'Kerrelyn Sparks', description: 'The sexy daughter of a vampire-hunting CIA agent finds untamed passion in a world she never knew existed.')
       expect(book).to be_valid
     end
 

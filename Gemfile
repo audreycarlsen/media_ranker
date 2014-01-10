@@ -34,7 +34,11 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'guard-rspec', require: false
+  gem 'factory_girl_rails'
 end
+
+gem 'simplecov', :require => false, :group => :test
 
 group :development do
   gem "better_errors"
