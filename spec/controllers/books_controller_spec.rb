@@ -1,9 +1,14 @@
 require "spec_helper"
 
 describe BooksController do
-  let!(:book) { Book.create(title: 'Eat, Prey, Love') }
+  let(:valid_params) { {title: 'Eat, Prey, Love', author: 'Kerrelyn Sparks', description: 'The sexy daughter of a vampire-hunting CIA agent finds untamed passion in a world she never knew existed.'} }
 
   describe "GET 'index'" do
+    # let!(:book) { Book.create(valid_params) }
+    before do 
+      Book.create!(valid_params)
+    end
+
     it 'is successful' do
       get :index
       expect(response).to be_successful
@@ -22,12 +27,12 @@ describe BooksController do
   describe "POST 'create'" do
   
     it 'redirects to a show template' do
-      post :create, book: {title: 'Twilight'}
+      post :create, book: valid_params
       expect(response).to redirect_to book_path(assigns(:book).id)
     end
 
     it 'assigns @book to a valid Book' do
-      post :create, book: {title: 'Twilight'}
+      post :create, book: valid_params
       expect(assigns(:book)).to be_a Book
     end
 
