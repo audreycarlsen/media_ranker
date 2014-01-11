@@ -36,14 +36,17 @@ describe BooksController do
   end
 
   describe "POST 'create'" do
+
+    let!(:book) { build(:book) }
+
     it 'assigns @book to a valid Book' do
-      post :create, book: valid_book_params
+      post :create, book: book.attributes
       expect(assigns(:book)).to be_a Book
     end
 
     context 'when valid' do
       it 'redirects to a show template' do
-        post :create, book: valid_book_params
+        post :create, book: book.attributes
         expect(response).to redirect_to book_path(assigns(:book).id)
       end
     end
@@ -98,6 +101,25 @@ describe BooksController do
           expect(response).to redirect_to book_path(assigns(:book).id)
         end
       end
+    end
+
+    context 'when invalid' do
+      it 'renders the :edit template' do
+        patch :update, id: book.id, book: {title: nil}
+        expect(response).to render_template :edit
+      end
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    it 'assigns @book' do
+      delete :destroy, id: book.id
+      expect(assigns(:book)).to be_an_instance_of Book
+    end
+
+    it 'redirects to the index page' do
+      delete :destroy, id: book.id
+      expect(response).to redirect_to books_path
     end
   end
 end

@@ -5,7 +5,8 @@ describe Book do
 
   describe 'validations' do
     it 'has a title' do
-      book = create(:book, title: nil)
+      book = build(:book, title: nil)
+      book.save
       expect(book.errors[:title]).to include "can't be blank"
     end
 
@@ -17,12 +18,14 @@ describe Book do
     end
 
     it 'has an author' do
-      book = Book.create
+      book = build(:book, author: nil)
+      book.save
       expect(book.errors[:author]).to include "can't be blank"
     end
 
     it 'has a description' do
-      book = Book.create
+      book = build(:book, description: nil)
+      book.save
       expect(book.errors[:description]).to include "can't be blank"
     end
 
